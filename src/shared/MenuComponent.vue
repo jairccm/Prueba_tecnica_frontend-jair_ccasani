@@ -1,7 +1,7 @@
 <template>
   <div class="navbar bg-base-300 mb-5">
     <div class="flex">
-      <a class="btn btn-ghost text-xl">RULETA GAME</a>
+      <a class="btn btn-ghost text-xl">JUEGO DE LA RULETA</a>
     </div>
     <div class="navbar-end">
       <a
@@ -9,7 +9,7 @@
       >
       <span class="mx-5">|</span>
       <a
-        >SALDO : <span class="ms-2">{{ usuario.monto }}</span></a
+        >SALDO : <span class="ms-2 badge-info px-3 py-2">{{ usuario.monto }}</span></a
       >
     </div>
 

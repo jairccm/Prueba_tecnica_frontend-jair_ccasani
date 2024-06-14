@@ -17,6 +17,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
+import router from '@/router';
+
 import { useRuletaStore } from '@/stores/main.store';
 
 import { cargarDatosUsuario } from '@/services/apiService';
@@ -48,5 +50,6 @@ const buscarUsuario = async () => {
   nombreUsuario.value = '';
 
   alert('Se cargaron datos del usuario');
+  router.push({ path: '/game' });
 };
 </script>

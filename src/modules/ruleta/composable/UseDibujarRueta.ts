@@ -1,7 +1,7 @@
 // src/composables/useDrawRoulette.ts
 import { ref, onMounted } from 'vue';
 import { obtenerResultado } from '@/services/apiService';
-
+import { useRuletaStore } from '@/stores/main.store';
 import Swal from 'sweetalert2';
 
 interface Option {
@@ -23,6 +23,8 @@ export function useDrawRoulette() {
   let spinTimeTotal: number = 0;
   let startAngle: number = 0;
   let spinTimeout: any;
+
+  const ruletaStore = useRuletaStore();
 
   const dibujarRuleta = (canvas: HTMLCanvasElement | null) => {
     if (!canvas) return;
@@ -131,6 +133,9 @@ export function useDrawRoulette() {
             footer: '',
           });
         }
+        ruletaStore.montoPremio = premio.montoPremio;
+        ruletaStore.usuario.monto += premio.montoPremio;
+        ruletaStore.showButtonGuardarResultado = true;
       })
       .catch((error) => alert('A ocurrido un error en el resultado de la ruleta'));
   };
